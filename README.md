@@ -7,16 +7,16 @@ If you run thrift services in production, it's handy to receive an email when sh
 
 Essentially, all this does is decorate TProcessor. So, just instantiate it with your TProcessor instance and some mail config:
   
-  import exceptionnotifier.ExceptionEmailingProcessor
+    import exceptionnotifier.ExceptionEmailingProcessor
 
-  // ...
+    // ...
 
-  val processor         = new MyService.Processor(handler)
-  val emailingProcessor = new ExceptionEmailingProcessor(processor = processor,
-                                                         from      = "myservice@%s".format(hostname),
-                                                         to        = "shitisbroken@mysite.com",
-                                                         subject   = "[MyService] Your codez are broken, bro.",
-                                                         host      = "smtp.mysite.com")
+    val processor         = new MyService.Processor(handler)
+    val emailingProcessor = new ExceptionEmailingProcessor(processor = processor,
+							   from      = "myservice@%s".format(hostname),
+							   to        = "shitisbroken@mysite.com",
+							   subject   = "[MyService] Your codez are broken, bro.",
+							   host      = "smtp.mysite.com")
 
 ## What it doesn't do
 
